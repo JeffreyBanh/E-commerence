@@ -1,6 +1,5 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-const { canTreatArrayAsAnd } = require('sequelize/types/lib/utils');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
@@ -19,7 +18,7 @@ Product.init(
     },
     product_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     price: {
       type: DataTypes.DECIMAL,
@@ -29,7 +28,7 @@ Product.init(
       }
     },
     stock:{
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
       validate:{
@@ -37,7 +36,7 @@ Product.init(
       }
     },
     category_id:{
-      types:DataTypes.INTEGER,
+      type:DataTypes.INTEGER,
       references:{
         model: 'category',
         key: 'id'
